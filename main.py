@@ -82,7 +82,7 @@ def new_instance(instance: list[int], k: int):
         instance = [number // 10 ** (sub_instance_size) for number in instance]
         if extra_step and i == k - 1:
             break
-        instance = [1, 2, 3]
+        instance = [999]
 
 
 # TODO: fix, is not correct/infeasable
