@@ -62,34 +62,27 @@ c = [
     10,
     14,
 ]
-d = [
-    10011100001,
-    10000011110,
-    1001111000,
-    1010000111,
-    110101010,
-    101010101,
-    10000000,
-    10000000,
-    1000000,
-    1000000,
-    100000,
-    100000,
-    10000,
-    10000,
-    1000,
-    1000,
-    100,
-    100,
-    10,
-    10,
-    1,
-    1,
-    44522222221,
-    44511111110,
-]
-
 k = 2
+
+
+def new_instance(instance: list[int], k: int):
+    size = int(log10(max(instance))) + 1
+    sub_instance_size = size // k
+    print(f"size: {size}")
+    print(f"sub_instance_size = {sub_instance_size}")
+
+    extra_step = False
+    if size % k != 0:  # fits well
+        extra_step = True
+
+    print(extra_step)
+    for i in range(k):
+        sub_instance = [number % 10 ** (sub_instance_size) for number in instance]
+        print(sub_instance)
+        instance = [number // 10 ** (sub_instance_size) for number in instance]
+        if extra_step and i == k - 1:
+            break
+        instance = [offset + a for offset in range(1, len(instance)) for a in instance]
 
 
 # TODO: fix, is not correct/infeasable
